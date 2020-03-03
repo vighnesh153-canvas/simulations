@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  simulations: {
+    components: [
+      {
+        title: 'Thanos\' Snap effect',
+        link: '/thanos-snap',
+        image: 'assets/images/thanos-snap.jpg'
+      }
+    ]
+  }
 };
 
 /*

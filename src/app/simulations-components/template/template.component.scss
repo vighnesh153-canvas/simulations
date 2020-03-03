@@ -1,0 +1,63 @@
+@import "src/themes";
+
+.container {
+  width: 80%;
+  margin: 25px auto;
+}
+
+.title {
+  margin-bottom: 25px;
+
+  text-align: center;
+  font-size: 2rem;
+}
+
+.canvas {
+  margin: auto;
+  display: block;
+
+  canvas {
+    display: block;
+    margin: auto;
+
+    border: 1px solid black;
+  }
+
+  .animate {
+    width: 100px;
+    padding: 4px 8px;
+    margin: 10px auto 0;
+
+    border-radius: 5px;
+    display: block;
+
+    font-size: 1rem;
+    cursor: pointer;
+    color: aliceblue;
+    background-color: $navTextColor;
+    outline-color: $navTextColor;
+
+    &:hover {
+      color: $navTextColor;
+      background-color: aliceblue;
+    }
+  }
+}
+
+.no-canvas {
+  display: none;
+
+  color: red;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+@media screen and (max-width: 625px) {
+  .canvas {
+    display: none;
+  }
+
+  .no-canvas {
+    display: block;
+  }
+}

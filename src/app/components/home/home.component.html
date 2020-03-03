@@ -1,0 +1,31 @@
+<div class="container">
+  <p class="intro">
+    A simulation is an approximate imitation of the operation of
+    a process or system; that represents its operation over time.
+    Simulation is used in many contexts, such as simulation of technology
+    for performance tuning or optimizing, safety engineering, testing,
+    training, education, and video games.
+  </p>
+
+  <p class="my-work">
+    I attempt to imitate some systems using the little knowledge
+    of coding I have. I hope you like what you see.
+  </p>
+
+  <blockquote class="quote">
+    "Math is fun, not when you understand it, but when you see how
+    beautiful it is."
+  </blockquote>
+
+  <div class="simulations-components">
+    <div
+      class="card" [routerLink]="component.link"
+      *ngFor="let component of simulationComponents"
+    >
+      <img [src]="component.image" [alt]="component.title"
+           class="card-image">
+      <div class="separator"></div>
+      <p class="card-title">{{ component.title }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <p class="title">{{ title }}</p>
+  <div class="canvas" *ngIf="displayCanvas">
+    <canvas width="500" height="300" #canvas></canvas>
+    <button
+      *ngIf="displayButton"
+      (click)="toggleAnimation()"
+      class="animate"
+    >
+      {{ animationRunning ? 'Stop' : 'Begin' }}
+    </button>
+  </div>
+  <div class="no-canvas">
+    <p>
+      Sorry. Please visit this page on a screen with width greater
+      than 650px to view the canvas.
+    </p>
+  </div>
+  <ng-content></ng-content>
+</div>
