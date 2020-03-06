@@ -1,0 +1,42 @@
+<app-template
+  title="Elastic collision between blocks to find digits of PI"
+  [animateFunction]="animateFunc"
+  [stopAnimationFunction]="stopAnimationFunc"
+  (isShown)="isCanvasDisplayed($event)"
+  [data]="data"
+>
+  <div class="content">
+    <div class="data" *ngIf="displayDataSection">
+      <app-data>
+        <app-integer-input
+          title="Precision"
+          note="Max value should not exceed 9 for performance reasons."
+          (value)="valueChanged($event)"
+        ></app-integer-input>
+      </app-data>
+    </div>
+    <p>
+      There are tons and tons of different ways to find
+      the digits of PI. And they are also way more efficient.
+    </p>
+    <p>
+      But there is also this way where we make 2 blocks collide
+      with each other (without any loss of energy, i.e., elastic collision)
+      and if we count the number of collisions,
+      then it surprisingly resembles the digits of PI. The relation between
+      the blocks is that if 1 block weighs <em>x</em>, then the other should
+      weigh <em>(100<sup> precision - 1</sup>)</em> times <em>x</em> where
+      the <em>precision</em> is the number of digits or the accuracy, we
+      desire in the number of collisions.
+    </p>
+    <p>
+      It is fascinating to see such a connection between <em>PI</em> and
+      simple physics. If you are interested in learning more about why this
+      works, then I would highly recommend that you check
+      <a href="https://www.youtube.com/watch?v=jsYwFizhncE"
+         rel="noopener" target="_blank">this</a>
+      <em> 3Blue1Brown</em>'s video where he goes in to
+      the details of this.
+    </p>
+  </div>
+</app-template>

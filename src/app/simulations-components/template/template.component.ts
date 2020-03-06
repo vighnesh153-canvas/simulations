@@ -1,38 +1,60 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  OnChanges,
   OnDestroy,
-  OnInit,
+  OnInit, Output, SimpleChanges,
   ViewChild
 } from '@angular/core';
+
+import { ComponentDataType } from '../../shared/models/ComponentData';
 
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.scss']
 })
-export class TemplateComponent implements OnInit, OnDestroy {
+export class TemplateComponent implements OnInit, OnDestroy, OnChanges {
   displayButton = false;
   animationRunning = false;
 
+  @Input() data: ComponentDataType = { digits: 5 };
+
   @Input() displayCanvas = true;
-  @Input() animateFunction: (canvasElement: HTMLCanvasElement) => void;
+  @Input() animateFunction:
+    (canvasElement: HTMLCanvasElement, data: ComponentDataType) => void;
   @Input() stopAnimationFunction: () => void;
 
   @Input() title = 'Title';
-  @ViewChild('canvas', { static: true })  // static: true, to use in ngOnInit
-  canvasElement: ElementRef<HTMLCanvasElement>;
+
+  @Output() isShown = new EventEmitter<boolean>();
+
+  @ViewChild('canvas') canvasElement: ElementRef<HTMLCanvasElement>;
 
   constructor() { }
 
   ngOnInit(): void {
     this.displayButton = true;
+    this.isShown.emit(window.innerWidth > 625);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.data.previousValue === undefined ||
+      (changes.data.currentValue.digits !==
+      changes.data.previousValue.digits)) {
+
+      if (this.animationRunning) {
+        this.stopAnimationFunction();
+        this.animationRunning = false;
+      }
+    }
   }
 
   toggleAnimation() {
     if (this.animationRunning === false) {
-      this.animateFunction(this.canvasElement.nativeElement);
+      this.animateFunction(this.canvasElement.nativeElement, this.data);
     } else {
       this.stopAnimationFunction();
     }

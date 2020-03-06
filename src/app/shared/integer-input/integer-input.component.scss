@@ -1,0 +1,62 @@
+@import "src/themes";
+
+.container {
+  $box-content-height: 30px;
+  $box-content-width: 40px;
+
+  display: inline-block;
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .box {
+    display: flex;
+    justify-content: center;
+
+    .box-content {
+      height: $box-content-height;
+      width: $box-content-width;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid black;
+
+      svg {
+        height: $box-content-height;
+        width: 100%;
+
+        color: $color2;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color2;
+          color: $color1;
+        }
+      }
+    }
+
+    .down-arrow {
+    }
+
+    .text-box {
+      border-left: none;
+      border-right: none;
+
+      font-size: 1rem;
+      cursor: default;
+    }
+
+    .up-arrow {
+    }
+  }
+
+  .note {
+    max-width: $box-content-width * 3;
+
+    color: #4b4b4b;
+    font-style: italic;
+  }
+}

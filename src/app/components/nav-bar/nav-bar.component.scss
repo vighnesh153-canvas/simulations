@@ -4,7 +4,15 @@ nav {
   height: 10vh;
   position: relative;
 
-  background-color: $backgroundColor;
+  background-color: $color1;
+}
+
+.container {
+  height: 100%;
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
 }
 
 .content {
@@ -15,12 +23,12 @@ nav {
   align-items: center;
 
   font-size: 1.8rem;
-  color: $navTextColor;
+  color: $color2;
 }
 
 .btn-back {
   position: absolute;
-  right: 5%;
+  right: 0;
   top: 50%;
   padding: 4px 8px;
 
@@ -29,10 +37,10 @@ nav {
 
   transform: translateY(-50%);
   cursor: pointer;
-  outline-color: darken($backgroundColor, 30);
+  outline-color: darken($color1, 30);
 
   &:hover, &:focus {
-    color: $navTextColor;
+    color: $color2;
     background-color: aliceblue;
   }
 }
