@@ -2,6 +2,7 @@
 
 .container {
   width: 80%;
+  max-width: 1000px;
   margin: 25px auto;
 }
 
@@ -34,11 +35,11 @@
     font-size: 1rem;
     cursor: pointer;
     color: aliceblue;
-    background-color: $navTextColor;
-    outline-color: $navTextColor;
+    background-color: $color2;
+    outline-color: $color2;
 
     &:hover {
-      color: $navTextColor;
+      color: $color2;
       background-color: aliceblue;
     }
   }
