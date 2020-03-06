@@ -20,7 +20,7 @@ export class TemplateComponent implements OnInit, OnDestroy, OnChanges {
   displayButton = false;
   animationRunning = false;
 
-  @Input() data: ComponentDataType = { digits: 5 };
+  @Input() data: ComponentDataType;
 
   @Input() displayCanvas = true;
   @Input() animateFunction:
@@ -41,6 +41,10 @@ export class TemplateComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (changes.data === undefined) {
+      return;
+    }
+
     if (changes.data.previousValue === undefined ||
       (changes.data.currentValue.digits !==
       changes.data.previousValue.digits)) {
